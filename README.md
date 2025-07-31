@@ -17,5 +17,5 @@ Criei uma mini Wikipédia personalizada com foco em artistas do movimento negro 
 Exercitar habilidades práticas em **estruturação de sites**, **uso de semântica HTML** e **estilização com CSS**, além de homenagear grandes nomes da música brasileira.
 
 ---
-
+Confira o resultado aqui 👉 https://sanchessb.github.io/wikipedia-artistas
 💡 Projeto finalizado em **julho de 2025**.
