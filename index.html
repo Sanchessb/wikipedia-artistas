@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wiki - Desafio Dio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #111;
+    }
+
+    header {
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      padding: 20px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    #search-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    #search-input {
+      padding: 10px 15px;
+      font-size: 16px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #search-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #main {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+    }
+
+    aside {
+      flex: 1;
+      min-width: 320px;
+      background-color: #fff;
+      padding: 40px;
+      border-right: 1px solid #ddd;
+    }
+
+    aside h2 {
+      font-size: 28px;
+      margin-top: 0;
+    }
+
+    aside p {
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    aside ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      font-size: 16px;
+    }
+
+    aside ul li {
+      margin-bottom: 10px;
+    }
+
+    main {
+      flex: 2;
+      padding: 40px;
+    }
+
+    .welcome-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .welcome-section h2 {
+      font-size: 38px;
+      margin: 0 0 10px;
+    }
+
+    .welcome-section p {
+      font-size: 18px;
+    }
+
+    .welcome-section img {
+      margin-top: 20px;
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .extra-section {
+      background-color: #fff;
+      padding: 30px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+
+    .extra-section h3 {
+      font-size: 22px;
+      margin-top: 0;
+    }
+
+    .extra-section p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #main {
+        flex-direction: column;
+      }
+
+      aside {
+        border-right: none;
+      }
+
+      .welcome-section img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Wiki - Desafio Dio</h1>
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="Pesquisar..." aria-label="Pesquisar" />
+      <button id="search-button">Buscar</button>
+    </div>
+  </header>
+
+  <div id="main">
+    <aside>
+      <h2>Sobre o Projeto</h2>
+      <p>
+        Essa é uma enciclopédia moderna inspirada no desafio da DIO. A ideia é montar uma plataforma de consulta colaborativa que traga artistas da música nacional com destaque para o rap, R&B e funk.
+      </p>
+      <p>
+        Aqui você poderá encontrar páginas detalhadas, curiosidades, frases famosas, fotos, vídeos e muito mais sobre nomes importantes da nossa cultura. Este projeto também serve para praticar HTML, CSS e tornar a web mais inclusiva.
+      </p>
+      <h3>Artistas disponíveis:</h3>
+      <ul>
+        <li>Djonga</li>
+        <li>Mano Brown</li>
+        <li>MC Hariel</li>
+        <li>MC Paulinho da Capital</li>
+        <li>Negra Li</li>
+      </ul>
+    </aside>
+
+    <main>
+      <div class="welcome-section">
+        <h2>Bem-vindo à Wiki dos Artistas</h2>
+        <p>Use o campo de busca acima para acessar a página de um dos artistas.</p>
+        <img src="igm/wikidosartistas.png" alt="Logo artístico estilizado">
+      </div>
+
+      <div class="extra-section">
+        <h3>🎤 Artista em destaque do dia</h3>
+        <p><strong>Negra Li</strong>: Uma das vozes mais marcantes do R&B e hip hop brasileiro. Com sua trajetória iniciada nos anos 90, ela abriu portas para muitas mulheres na música urbana nacional.</p>
+      </div>
+
+      <div class="extra-section">
+        <h3>💡 Você sabia?</h3>
+        <p>O Racionais MC's foram pioneiros ao trazer temas como racismo e desigualdade para o centro do debate social usando o rap como ferramenta de resistência.</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- SCRIPT DE BUSCA E REDIRECIONAMENTO -->
+  <script>
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+
+    const artistPages = {
+      'djonga': 'djonga.html',
+      'mano brown': 'manobral.html',
+      'mc hariel': 'mcariel.html',
+      'mc paulinho da capital': 'mcpaulinho.html',
+      'negra li': 'negrali.html'
+    };
+
+    function buscarArtista() {
+      const termo = searchInput.value.trim().toLowerCase();
+
+      if (termo in artistPages) {
+        window.location.href = artistPages[termo];
+      } else {
+        alert('Artista não encontrado. Tente novamente!');
+      }
+    }
+
+    searchButton.addEventListener('click', buscarArtista);
+    searchInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        buscarArtista();
+      }
+    });
+  </script>
+</body>
+</html>
